@@ -8,3 +8,4 @@ tags = {
   Project     = "prod-web-app"
   Owner       = "Sri Kamal"
 }
+key_pair_name = "AdminKey"

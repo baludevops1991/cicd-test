@@ -27,3 +27,8 @@ variable "tags" {
   description = "Tags to apply to all resources"
   type        = map(string)
 }
+
+variable "key_pair_name" {
+  description = "The EC2 Key Pair name"
+  type        = string
+}
