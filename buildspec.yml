@@ -2,30 +2,17 @@ version: 0.2
 
 phases:
   install:
-      runtime-versions:
-        python: 3.8  # Optional: if Python is needed for Terraform modules or scripting
-      commands:
-      - echo "Installing Terraform v1.11.4..."
-      - curl -O https://releases.hashicorp.com/terraform/1.11.4/terraform_1.11.4_linux_amd64.zip
-      - unzip terraform_1.11.4_linux_amd64.zip
-      - mv terraform /usr/local/bin/
-      - terraform version
-
-  pre_build:
+    runtime-versions:
+      python: 3.9
     commands:
-      - echo "Initializing Terraform..."
-      - terraform init -input=false
-
+      - echo "Installing dependencies..."
+      - pip install -r requirements.txt -t .
   build:
     commands:
-      - echo "Planning Terraform changes..."
-      - terraform plan -out=tfplan -input=false
-
-  post_build:
-    commands:
-      - echo "Applying Terraform changes..."
-      - terraform apply -input=false -auto-approve tfplan || exit 1
-
+      - echo "Build stage - nothing to compile for Python."
 artifacts:
   files:
-    - "**/*"
+    - app/**
+    - requirements.txt
+    - scripts/**
+    - appspec.yml
