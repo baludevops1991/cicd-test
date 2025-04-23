@@ -2,7 +2,9 @@ version: 0.2
 
 phases:
   install:
-    commands:
+      runtime-versions:
+        python: 3.8  # Optional: if Python is needed for Terraform modules or scripting
+      commands:
       - echo "Installing Terraform v1.11.4..."
       - curl -O https://releases.hashicorp.com/terraform/1.11.4/terraform_1.11.4_linux_amd64.zip
       - unzip terraform_1.11.4_linux_amd64.zip
