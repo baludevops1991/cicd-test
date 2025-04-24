@@ -1,3 +1,4 @@
 #!/bin/bash
 cd /home/ubuntu/python-app/app
-nohup python3 app.py > app.log 2>&1 &
+echo "Starting app at $(date)" >>/home/ubuntu/python-app/app.log
+nohup python3 app.py >>/home/ubuntu/python-app/app.log 2>&1 &
